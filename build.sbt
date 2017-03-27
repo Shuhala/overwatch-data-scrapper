@@ -2,9 +2,7 @@ name := "Overwatch"
 
 version := "1.0"
 
-lazy val `overwatch` = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.11.8"
+lazy val `overwatch` = (project in file(".")).enablePlugins(PlayScala).settings(Common.settings: _*)
 
 libraryDependencies ++= Seq(
   jdbc , cache , ws , specs2 % Test,
@@ -20,5 +18,3 @@ initialCommands in console += "import scalaj.http._"
 initialCommands in console += "import net.liftweb.json._"
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
-
-resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"

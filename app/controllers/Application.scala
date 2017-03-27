@@ -1,14 +1,13 @@
 package controllers
 
+import helpers.Scraper
 import play.api.mvc._
-import models.OverwatchScraper
 
 
 object Application extends Controller {
 
   def index = Action {
-    println(OverwatchScraper.getHeroesOverallData.values.foreach(p=> p.foreach(h => println(h))))
+    println(Scraper.getHeroOverallData("soLdier 76"))
     Ok(views.html.index(":D"))
   }
-
 }
